@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. -->
+<project basedir="." default="main" name="NettyPush">
+    <property environment="env"/>
+    <property name="ECLIPSE_HOME" value="../../software/eclipse/eclipse-64bit/"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.7"/>
+    <property name="source" value="1.7"/>
+	<path id="classpath">
+	        <dirset dir="${basedir}/build/classes" />
+	        <fileset dir="${basedir}/WebContent/WEB-INF/lib" includes="*.jar" />
+	</path>
+	<target name="main" depends="clean,init,compile,binggen, bind" description="Main target" />
+    <target name="init">
+        <mkdir dir="build/classes"/>
+    </target>
+    <target name="clean">
+        <delete dir="build/classes"/>
+    </target>
+	 
+    <target name="compile" description="Compilation target">
+        <echo>Building file.</echo>
+        <javac classpathref="classpath" srcdir="${basedir}/src/com" destdir="${basedir}/build/classes" includeantruntime="true" />
+    </target>
+    <target name="binggen">
+        <echo message="Running BindGen tool" />
+        <java classpathref="classpath" fork="true" failonerror="true" classname="org.jibx.binding.generator.BindGen">
+        	<arg value="-s" />
+        	<arg value="${basedir}/src/com/netty/http_xml/pojo" />
+            <arg value="com.netty.http_xml.pojo.Order" />
+        </java>
+    </target>
+    <target name="bind">
+        <echo message="Running bind" />
+        <taskdef name="bind" classname="org.jibx.binding.ant.CompileTask">
+            <classpath refid="classpath"/>
+        </taskdef>
+        <bind binding="${basedir}/binding.xml">
+            <classpath refid="classpath"/>
+        </bind>
+    </target>
+   
+</project>

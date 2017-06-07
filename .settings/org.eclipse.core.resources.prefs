@@ -1,0 +1,6 @@
+eclipse.preferences.version=1
+encoding//src/com/netty/self_protocal/HeartBeatReqHandler.java=UTF-8
+encoding//src/com/netty/self_protocal/HeartBeatRespHandler.java=UTF-8
+encoding//src/com/netty/self_protocal/MarshallingCodecFactory.java=UTF-8
+encoding//src/com/netty/self_protocal/MarshallingDecoder.java=UTF-8
+encoding//src/com/netty/self_protocal/MessageType.java=UTF-8

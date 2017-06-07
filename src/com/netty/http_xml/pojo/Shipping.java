@@ -1,0 +1,6 @@
+package com.netty.http_xml.pojo;
+
+public enum Shipping {
+	STANDARD_MAIL,PRIORITY_MAIL,INTERNATIONAL_MAIL,DOMEXTIC_EXPRESS,INTERNATIONAL_EXPRESS
+
+}
